@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Light Theme - Warm Yellow/Cream Background */
+    --background: 48 100% 96%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    /* Mechanic Yellow */
+    --primary: 51 100% 50%;
+    --primary-foreground: 0 0% 0%;
+
+    /* Light Steel Grey */
+    --secondary: 48 60% 90%;
+    --secondary-foreground: 0 0% 10%;
+
+    /* Muted for light theme */
+    --muted: 48 30% 85%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 51 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 48 20% 80%;
+    --input: 48 20% 80%;
+    --ring: 51 100% 50%;
+
+    --radius: 0.25rem;
+
+    /* Custom Colors */
+    --steel: 0 0% 90%;
+    --metallic: 0 0% 35%;
+    --dark-card: 0 0% 98%;
+    
+    /* Gradients for light theme */
+    --gradient-industrial: linear-gradient(135deg, hsl(48 100% 96%) 0%, hsl(48 60% 92%) 100%);
+    --gradient-steel: linear-gradient(180deg, hsl(48 60% 92%) 0%, hsl(48 40% 88%) 100%);
+    --gradient-yellow-glow: radial-gradient(circle, hsl(51 100% 50% / 0.2) 0%, transparent 70%);
+
+    /* Shadows for light theme */
+    --shadow-industrial: 0 4px 30px hsl(0 0% 0% / 0.1);
+    --shadow-yellow-glow: 0 0 40px hsl(51 100% 50% / 0.3);
+
+    /* Sidebar */
+    --sidebar-background: 48 100% 98%;
+    --sidebar-foreground: 0 0% 10%;
+    --sidebar-primary: 51 100% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 48 60% 92%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 48 20% 80%;
+    --sidebar-ring: 51 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.05em;
+  }
+}
+
+@layer components {
+  /* Industrial Button Styles */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground font-bold uppercase tracking-wider;
+    @apply hover:brightness-110 transition-all duration-300;
+    @apply shadow-[0_0_20px_hsl(51_100%_50%_/_0.3)];
+  }
+
+  .btn-primary:hover {
+    @apply shadow-[0_0_30px_hsl(51_100%_50%_/_0.5)];
+  }
+
+  /* Hazard Stripe Pattern */
+  .hazard-stripe {
+    background: repeating-linear-gradient(
+      45deg,
+      hsl(51 100% 50%),
+      hsl(51 100% 50%) 10px,
+      hsl(0 0% 15%) 10px,
+      hsl(0 0% 15%) 20px
+    );
+  }
+
+  /* Metallic Texture for light theme */
+  .metallic-texture {
+    background: 
+      linear-gradient(90deg, transparent 0%, hsl(0 0% 0% / 0.02) 50%, transparent 100%),
+      linear-gradient(0deg, hsl(48 100% 96%) 0%, hsl(48 60% 94%) 100%);
+  }
+
+  /* Steel Section for light theme */
+  .steel-section {
+    background: linear-gradient(180deg, hsl(48 60% 92%) 0%, hsl(48 40% 88%) 100%);
+  }
+
+  /* Gear Pattern Overlay - adjusted for light theme */
+  .gear-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* Section Animation Classes */
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-slide-left {
+    animation: slideLeft 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-slide-right {
+    animation: slideRight 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* Yellow Accent Border */
+  .yellow-accent-left {
+    @apply border-l-4 border-primary pl-6;
+  }
+
+  /* Card Hover Effect - adjusted for light theme */
+  .industrial-card {
+    @apply bg-card border border-border transition-all duration-300 shadow-sm;
+    @apply hover:border-primary hover:shadow-[0_0_20px_hsl(51_100%_50%_/_0.2)];
+  }
+}
+
+@layer utilities {
+  .text-shadow-industrial {
+    text-shadow: 0 2px 10px hsl(0 0% 0% / 0.3);
+  }
+
+  .text-gradient-yellow {
+    background: linear-gradient(135deg, hsl(51 100% 45%) 0%, hsl(45 100% 50%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Scrollbar Styling - Light theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(48 60% 94%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(48 20% 70%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(51 100% 50%);
+}
